@@ -15,7 +15,8 @@ function setCookie(name, value, days) {
 	const date = new Date();
 	date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
 	const expires = `expires=${date.toUTCString()}`;
-	document.cookie = `${name}=${value};${expires};path=/;SameSite=Lax`;
+	// Removed path=/ to correctly scope cookies
+	document.cookie = `${name}=${value};${expires};SameSite=Lax`;
 }
 
 function getUsers() {
@@ -35,20 +36,17 @@ function capitalize(str) {
 // Page Protection and Redirects
 
 const activeUser = getCookie("active_user");
-const currentPage = window.location.pathname.split("/").pop();
+const path = window.location.pathname;
+const currentPage = path.split("/").pop();
+const isAtHome = currentPage === "" || currentPage === "index.html";
 
 // Redirect away from login/signup if already logged in
-if (
-	activeUser &&
-	(currentPage === "index.html" ||
-		currentPage === "" ||
-		currentPage === "signup.html")
-) {
-	window.location.href = "profile.html";
+if (activeUser && (isAtHome || currentPage === "signup.html")) {
+	window.location.href = "./profile.html";
 }
 // Redirect away from profile if not logged in
 else if (!activeUser && currentPage === "profile.html") {
-	window.location.href = "index.html";
+	window.location.href = "./index.html";
 }
 
 // Main Stuff
@@ -91,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					if (user.password === passwordInput.value) {
 						showToast("Successfully logged in!");
 						setCookie("active_user", JSON.stringify(user), 1);
-						setTimeout(() => (window.location.href = "profile.html"), 750);
+						setTimeout(() => (window.location.href = "./profile.html"), 750);
 					} else {
 						showError("password", "Invalid password");
 					}
@@ -123,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				setCookie("app_users", JSON.stringify(users), 7);
 
 				showToast("Account created successfully!");
-				setTimeout(() => (window.location.href = "index.html"), 750);
+				setTimeout(() => (window.location.href = "./index.html"), 750);
 			}
 		});
 	}
@@ -138,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		document.getElementById("logout-btn").addEventListener("click", () => {
 			setCookie("active_user", "", -1);
-			window.location.href = "index.html";
+			window.location.href = "./index.html";
 		});
 	}
 
