@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				}
 
 				users.push({ name, username, email, password });
-				setCookie("app_users", JSON.stringify(users), 7);
+				setCookie("app_users", JSON.stringify(users), 1);
 
 				showToast("Account created successfully!");
 				setTimeout(() => (window.location.href = "./index.html"), 750);
