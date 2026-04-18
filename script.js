@@ -205,4 +205,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		}, 3000);
 	}
 });
-// Author: Subash Praveen Github: 1ofx9
+
+// Author: Subash Praveen (github.com/1ofx9)

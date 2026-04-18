@@ -17,3 +17,4 @@ A lightweight authentication system built with vanilla HTML, CSS, and JavaScript
 - **Session**: The system checks for the `active_user` cookie to handle redirects and protect the profile page.
 - **Logout**: Clears the session cookie and redirects to the login page.
 
+<!-- Author: Subash Praveen (github.com/1ofx9) -->
