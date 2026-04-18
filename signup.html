@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="card" id="signup-card">
+        <h1>Create an account</h1>
+        <p class="subtitle">Enter your details to get started.</p>
+        <form id="signup-form" novalidate>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Name" autocomplete="name">
+                    <div class="error-message" id="name-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Username" autocomplete="username">
+                    <div class="error-message" id="username-error"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" placeholder="Enter your email" autocomplete="email">
+                <div class="error-message" id="email-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" placeholder="Create a password" autocomplete="new-password">
+                    <button type="button" class="password-toggle" id="password-toggle" aria-label="Toggle password visibility">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><title>Show Password</title><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
+                </div>
+                <div class="error-message" id="password-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <div class="password-wrapper">
+                    <input type="text" id="confirm-password" placeholder="Confirm your password" autocomplete="new-password">
+                </div>
+                <div class="error-message" id="confirm-password-error"></div>
+            </div>
+            <button type="submit" id="submit-btn" class="submit-btn">Create Account</button>
+        </form>
+        <footer class="card-footer">
+            <p>Already have an account? <a id="login-link" href="/">Log in</a></p>
+        </footer>
+    </main>
+
+    <div id="toast" class="success-toast">
+        Account created successfully!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- Author: Subash Praveen Github: 1ofx9 -->
+ 

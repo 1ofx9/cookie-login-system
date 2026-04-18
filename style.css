@@ -1,0 +1,239 @@
+:root {
+	--background: 0 0% 100%;
+	--foreground: 240 10% 4%;
+	--card: 0 0% 100%;
+	--primary: 240 6% 10%;
+	--primary-foreground: 0 0% 98%;
+	--muted: 240 5% 96%;
+	--muted-foreground: 240 4% 46%;
+	--destructive: 0 84% 60%;
+	--border: 240 6% 90%;
+	--input: 240 6% 90%;
+	--ring: 240 6% 10%;
+	--radius: 0.5rem;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Inter", sans-serif;
+	background-color: hsl(var(--background));
+	color: hsl(var(--foreground));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.card {
+	width: 100%;
+	max-width: 400px;
+	background-color: hsl(var(--card));
+	border: 1px solid hsl(var(--border));
+	border-radius: var(--radius);
+	padding: 2rem;
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+	animation: slideUp 0.25s ease-out;
+}
+
+#signup-card {
+	max-width: 500px;
+}
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+h1 {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+.subtitle {
+	color: hsl(var(--muted-foreground));
+	font-size: 0.875rem;
+	margin-bottom: 2rem;
+}
+
+.form-group {
+	margin-bottom: 1.25rem;
+}
+
+.form-row {
+	display: flex;
+	gap: 1rem;
+	width: 100%;
+}
+
+.form-row .form-group {
+	flex: 1;
+}
+
+label {
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 500;
+	margin-bottom: 0.5rem;
+}
+
+input {
+	width: 100%;
+	padding: 0.5rem 0.75rem;
+	background-color: transparent;
+	border: 1px solid hsl(var(--input));
+	border-radius: var(--radius);
+	color: inherit;
+	font-size: 0.875rem;
+}
+
+input:focus {
+	outline: none;
+	border-color: hsl(var(--ring));
+	box-shadow: 0 0 0 2px hsla(var(--ring), 0.2);
+}
+
+input.error {
+	border-color: hsl(var(--destructive));
+}
+
+.error-message {
+	color: hsl(var(--destructive));
+	font-size: 0.75rem;
+	margin-top: 0.25rem;
+}
+
+button {
+	width: 100%;
+	padding: 0.5rem 1rem;
+	background-color: hsl(var(--primary));
+	color: hsl(var(--primary-foreground));
+	border: none;
+	border-radius: var(--radius);
+	font-size: 0.875rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: opacity 0.2s;
+}
+
+.submit-btn {
+	margin-top: 1rem;
+}
+
+#logout-btn {
+	margin-top: 2rem;
+}
+
+button:hover {
+	opacity: 0.9;
+}
+
+.success-toast {
+	position: fixed;
+	top: 2rem;
+	right: 2rem;
+	background-color: hsl(var(--primary));
+	color: hsl(var(--primary-foreground));
+	padding: 1rem 1.5rem;
+	border-radius: var(--radius);
+	transform: translateX(120%);
+	transition: transform 0.3s ease;
+	z-index: 100;
+}
+
+.success-toast.show {
+	transform: translateX(0);
+}
+
+.card-footer {
+	margin-top: 1.5rem;
+	padding-top: 1rem;
+	border-top: 1px solid hsl(var(--border));
+	text-align: center;
+}
+
+.card-footer p {
+	font-size: 0.875rem;
+	color: hsl(var(--muted-foreground));
+}
+
+.card-footer a {
+	color: hsl(var(--primary));
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.password-wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.password-wrapper input {
+	padding-right: 2.5rem;
+}
+
+.password-toggle {
+	position: absolute;
+	right: 0.75rem;
+	top: 50%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	padding: 0;
+	color: hsl(var(--muted-foreground));
+	cursor: pointer;
+	line-height: 0;
+	display: flex;
+	justify-content: end;
+	width: fit-content;
+}
+
+.password-toggle:hover {
+	color: hsl(var(--foreground));
+}
+
+.dashboard-info {
+	margin: 1.5rem 0;
+	padding: 1rem;
+	background-color: hsl(var(--muted));
+	border-radius: var(--radius);
+	border: 1px solid hsl(var(--border));
+}
+
+.info-row {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5rem 0;
+}
+
+.info-row:not(:last-child) {
+	border-bottom: 1px solid hsla(var(--border), 0.5);
+}
+
+.info-row .label {
+	font-size: 0.875rem;
+	color: hsl(var(--muted-foreground));
+}
+
+.info-row .value {
+	font-size: 0.875rem;
+	font-weight: 600;
+}
+
+#signup-link:hover,
+#login-link:hover {
+	text-decoration: underline;
+}
+/* Author: Subash Praveen Github: 1ofx9 */
