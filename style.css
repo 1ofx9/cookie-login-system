@@ -27,6 +27,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
+	padding: 1rem;
 }
 
 .card {
@@ -95,7 +96,7 @@ input {
 	border: 1px solid hsl(var(--input));
 	border-radius: var(--radius);
 	color: inherit;
-	font-size: 0.875rem;
+	font-size: 16px; /* 16px prevents iOS auto-zoom */
 }
 
 input:focus {
@@ -236,4 +237,20 @@ button:hover {
 #login-link:hover {
 	text-decoration: underline;
 }
+
+@media (max-width: 640px) {
+	.card {
+		padding: 1.5rem;
+	}
+
+	h1 {
+		font-size: 1.5rem;
+	}
+
+	.form-row {
+		flex-direction: column;
+		gap: 0;
+	}
+}
+
 /* Author: Subash Praveen Github: 1ofx9 */
